@@ -1,0 +1,1 @@
+# Kv-z-vod-do-filosofie
