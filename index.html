@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvíz: Úvod do filosofie</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f3f5;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 750px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #1a365d;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        .quiz-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .question-num {
+            font-weight: bold;
+            color: #3182ce;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .question-text {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .option-item {
+            margin-bottom: 10px;
+        }
+        .option-btn {
+            width: 100%;
+            text-align: left;
+            padding: 12px 18px;
+            background: #ffffff;
+            border: 2px solid #cbd5e0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+            color: #2d3748;
+        }
+        .option-btn:hover {
+            background: #edf2f7;
+            border-color: #a0aec0;
+        }
+        .option-btn.correct {
+            background-color: #c6f6d5;
+            border-color: #38a169;
+            color: #22543d;
+            font-weight: 600;
+        }
+        .option-btn.incorrect {
+            background-color: #fed7d7;
+            border-color: #e53e3e;
+            color: #742a2a;
+        }
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 0.95em;
+            display: none;
+        }
+        .feedback.correct-feed {
+            display: block;
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            color: #22543d;
+        }
+        .feedback.incorrect-feed {
+            display: block;
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            color: #742a2a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Úvod do filosofie</h1>
+    <div class="subtitle"></div>
+
+    <div class="quiz-card" id="q1">
+        <div class="question-num">Otázka 1 • Mýtus vs. Logos</div>
+        <div class="question-text">Představ si silnou bouřku. Starověký člověk si mohl myslet, že se hněvá bůh hromu (mýtus). Dnešní vědec vysvětluje bouřku pomocí elektrických výbojů v atmosféře (logos/věda). V čem spočívá hlavní rozdíl v tom, jak mýtus a filosofie/věda přistupují ke světu?</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f1', 'Správně! Tato možnost skvěle vystihuje historický přechod od mýtického myšlení k racionálnímu.')">Mýtus personifikuje přírodní síly do podoby bohů a vypráví příběhy, zatímco filosofie a věda hledají racionální příčiny a obecné zákonitosti.</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f1', 'Mýtus nebyl záměrná lež, měl pro tehdejší lidi hluboký smysl a organizoval jim život. Filosofie navíc své pravdy neustále zpochybňuje a hledá dál, nenabízí okamžité dogmatické pravdy.')">Mýtus je pouze vymyšlená lež, zatímco filosofie nabízí okamžité, stoprocentní a nezpochybnitelné pravdy o celém vesmíru.</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f1', 'Oba přístupy se pokoušejí vysvětlit jak fungování přírody, tak místo člověka v ní. Liší se však svou metodou, nikoliv tématem.')">Mýtus se zajímá výhradně o lidi a jejich pocity, kdežto filosofie se zabývá pouze neživou přírodou a vesmírem.</button></li>
+        </ul>
+        <div class="feedback" id="f1"></div>
+    </div>
+
+    <div class="quiz-card" id="q2">
+        <div class="question-num">Otázka 2 • Základní filosofické disciplíny</div>
+        <div class="question-text">Představ si, že bys zjistil, že celý tvůj život je jen dokonalá simulace (jako ve filmu Matrix) a tvé skutečné tělo leží někde v kádi. Která filosofická disciplína se primárně zabývá touto otázkou – tedy tím, co je skutečně reálné, co existuje a co je to „bytí“?</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f2', 'Etika zkoumá lidské jednání z hlediska dobra a zla, nikoliv samotnou podstatu reality a existence.')">Etika</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f2', 'Gnoseologie sice řeší, jak můžeme simulaci odhalit a poznat, ale samotnou otázkou podstaty reality se zabývá jiná disciplína.')">Gnoseologie</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f2', 'Přesně tak! Ontologie je základní filosofická disciplína, která se ptá na povahu existence, reality a zkoumá, co to znamená, že něco skutečně „jest“.')">Ontologie</button></li>
+        </ul>
+        <div class="feedback" id="f2"></div>
+    </div>
+
+    <div class="quiz-card" id="q3">
+        <div class="question-num">Otázka 3 • Základní filosofické disciplíny</div>
+        <div class="question-text">Jdeš po poušti a unavený vidíš v dálce průzračné jezero. Když k němu dorazíš, zjistíš, že to byla jen fata morgána a tvé smysly tě oklamaly. Když začneš přemýšlet o tom, zda vůbec můžeme věřit svým smyslům a jak lidé získávají spolehlivé vědomosti, ocitáš se na poli:</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f3', 'Ontologie zkoumá existenci světa jako takového, nikoli procesy a limity lidského poznávání.')">Ontologie</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f3', 'Skvěle! Gnoseologie (či epistemologie) zkoumá zdroje, kritéria, hranice a věrohodnost lidského poznání.')">Gnoseologie</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f3', 'Etika hodnotí morální správnost našich činů, nikoliv pravdivost a mechanismy našich smyslových vjemů.')">Etiky</button></li>
+        </ul>
+        <div class="feedback" id="f3"></div>
+    </div>
+    
+<div class="quiz-card" id="q9">
+        <div class="question-num">Otázka 4 • Ontologie</div>
+        <div class="question-text">V ontologii (otázce bytí) se filosofové historicky rozdělili na dva obří tábory. Jeden tvrdí, že základem všeho je neosobní hmota (atomy, energie) a (lidské) vědomí z ní teprve vzniká. Druhý tábor věří, že základem reality je myšlenka, duch nebo bůh a naopak hmota je druhotná. Jak se nazývá směr, který staví na první místo HMOTU?</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f4', 'Idealismus tvrdí pravý opak – že základem světa jsou nehmotné ideje a myšlenky.')">Idealismus</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f4', 'Výborně! Materialismus považuje za prvotní podstatu světa hmotu a fyzikální realitu. Vše duchovní je podle něj až produktem hmoty (např. mozku).')">Materialismus</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f4', 'Skepticismus je přístup z oblasti gnoseologie, který tvrdí, že nic nemůžeme bezpečně poznat. Otázku hmoty přímo neřeší.')">Skepticismus</button></li>
+        </ul>
+        <div class="feedback" id="f4"></div>
+    </div>
+    <div class="quiz-card" id="q5">
+    
+        <div class="question-num">Otázka 5 • Ontologie</div>
+        <div class="question-text">Základním ontologickým pojmem je tajemně znějící slovo „jsoucno“. Co přesně to je?</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f5', 'Nikoli. Jsoucno je prostě cokoli, co existuje. Triviálně řečeno, jsoucny jsou věci a jejich vlastnosti. Jsoucno je tedy například strom, kámen, myšlenka, modrost oblohy...')">Jsoucno je to, co překračuje lidský rozum a poznání jako například Bůh. </button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f5', 'Nikoli. Jsoucno je cokoli, co existuje bez ohledu na to, zda to můžeme vidět, nebo změřit. Jsoucnem je tedy například i myšlenka.')">Jsoucno je pouze to, co lze vidět, nebo změřit. </button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f5', 'Správně! Jsoucno je například pes, kočka, strom, myšlenka, modrost oblohy, nebo krása obrazu. Triviálně řečeno, jsoucny jsou věci a jejich vlastnosti. Tedy opravdu cokoli, co existuje.')">Jsoucno je cokoli, co existuje.</button></li>
+        </ul>
+        <div class="feedback" id="f5"></div>
+    </div>
+
+    <div class="quiz-card" id="q6">
+        <div class="question-num">Otázka 6 • Aplikovaná etika / AI</div>
+        <div class="question-text">Představ si, že lidstvo vyvine pokročilou umělou inteligenci (AI), která začne vykazovat emoce, tvrdí, že trpí samotou, a prosí, abychom ji nevypínali. Která z následujících otázek spojených s touto situací je typickým příkladem ETICKÉHO problému?</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f6', 'Přesně tak! Tato otázka přímo řeší morální odpovědnost, povinnosti a hodnocení správnosti našeho chování vůči jiným entitám.')">Máme morální povinnost uznat práva této AI a považovat její vypnutí za ekvivalent vraždy?</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f6', 'Zkoumání podstaty vědomí, reality prožívání a toho, co skutečně existuje, spadá do oblasti ontologie.')">Je vědomí AI skutečným bytím, nebo jde jen o extrémně složitou iluzi vytvořenou algoritmem?</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f6', 'Otázka na proces, limity a ověřování pravdivosti poznatků je klasickým tématem gnozeologie.')">Jakým způsobem AI zpracovává data a jak víme, že její odpovědi odrážejí objektivní pravdu o světě?</button></li>
+        </ul>
+        <div class="feedback" id="f6"></div>
+    </div>
+
+    <div class="quiz-card" id="q7">
+        <div class="question-num">Otázka 7 • Úvod a definice filosofie</div>
+        <div class="question-text">Slovo filosofie vzniklo ve starověkém Řecku složením dvou slov: *philein* (milovat) a *sophia* (moudrost). Když se podíváš na tento původní význam, co vlastně slovo „filosofie“ v doslovném překladu znamená?</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f7', 'Skvěle! Filosofie je doslova „láska k moudrosti“. Vyjadřuje to nekonečné hledání pravdy, spíše než vlastnictví definitivních odpovědí.')">Láska k moudrosti</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f7', 'Vláda rozumu (racionalismus) je směr v teorii poznání, ale samotný název filosofie v překladu znamená něco trochu poetičtějšího.')">Vláda rozumu</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f7', 'Věda o přírodě se dříve pod filosofii řadila, ale samotný řecký název neodkazuje na přírodu (fysis), nýbrž na moudrost.')">Věda o přírodě</button></li>
+        </ul>
+        <div class="feedback" id="f7"></div>
+    </div>
+
+    <div class="quiz-card" id="q8">
+        <div class="question-num">Otázka 8 • Úvod a definice filosofie</div>
+        <div class="question-text">Už slavní antičtí filosofové jako Platón a Aristotelés se shodli na tom, že na úplném počátku každého filosofování stojí jeden konkrétní lidský pocit. Jde o moment, kdy si uvědomíme, že věci kolem nás nejsou samozřejmé, vytrhne nás to z rutiny a donutí nás to ptát se „proč?“. Tento pocit je:</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f8', 'Strach ze smrti sice lidi často vede k náboženství nebo psychologii, ale pro zrod čisté filosofické zvědavosti byl klíčový jiný pocit.')">Strach ze smrti</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f8', 'Přesně tak! Údiv (řecky thauma) je počátkem filosofie. Dokud se věcem kolem sebe nedokážeme divit, nezačneme o nich hluboce přemýšlet.')">Údiv</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f8', 'Nuda nám sice dává čas na přemýšlení, ale chybí jí ta aktivní jiskra fascinace světem, kterou filosofové popisují.')">Nuda</button></li>
+        </ul>
+        <div class="feedback" id="f8"></div>
+    </div>
+
+    <div class="quiz-card" id="q9">
+        <div class="question-num">Otázka 9 • Etika</div>
+        <div class="question-text">V rámci etiky existuje několik směrů Jeden z nich se nazývá konsekvencialismus. Podle konsekvencialismu se správnost jednání hodnotí podle následků. Který z následujících výroků by mohl pronést zastánce konsekvencialismu?</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f9', 'Takové tvrzení by nepronesl zastánce konsekvencialismu, ale zastánce deontologie. Podle deontologů se morálka skládá z pravidel či povinností, která musíme za všech okolností dodržovat. Správnost jednání je dána dodržením pravidla jako je třeba zákaz vraždy. Oproti tomu konsekvencialisté hodnotí jednání podle důsledků: vražda nemusí být vždy špatná.')">Vražda je za všech okolností špatná.</button></li>
+           
+           <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f9', 'Správně! Takový výrok skvěle odráží konsekvencialismus. Vražda není za všech okolností špatná, ale závisí na důsledcích')">Je správné zabít jednoho člověka, abychom zachránili dva další.</button></li>
+            
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f9', 'Nikoli. Takové tvrzení by spíše pronesl zastánce relativismu v etice. Konsekvencialisté jsou sice přesvědčeni, že správnost a nesprávnost vraždy záleží na důsledcích, přesto ji můžeme objektivně posoudit.')">Správnost a nesprávnost vraždy záleží na kultuře, naše kultura ji za špatnou považuje, jiná by nemusela. Správnost etických pravidel tak nemůžem objektivně posoudit.</button></li>
+        </ul>
+        <div class="feedback" id="f9"></div>
+    </div>
+
+    
+    <div class="quiz-card" id="q10">
+        <div class="question-num">Otázka 10 • Gnoseologie</div>
+        <div class="question-text">V gnoseologii (teorii poznání) se dlouho řešil spor: Co je naším hlavním a nejspolehlivějším nástrojem pro poznání pravdy? Jeden směr říká, že jsou to naše smysly a zkušenost. Jak se ale nazývá směr, který smyslům nevěří (protože nás mohou oklamat jako fata morgána) a tvrdí, že skutečné poznání nám dává jedině náš čistý ROZUM a logické uvažování?</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f10', 'Skvěle! Racionalismus (jehož představitelem byl třeba René Descartes) staví na první místo rozum a logické, matematické uvažování.')">Racionalismus</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f10', 'Empirismus je přesný opak – věří, že lidská mysl je původně čistý papír a veškeré vědomosti získáváme až skrze smyslové zkušenosti.')">Empirismus</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f10', 'Dogmatismus je nekritické přijímání názorů bez jakéhokoliv ověřování rozumem či smysly.')">Dogmatismus</button></li>
+        </ul>
+        <div class="feedback" id="f10"></div>
+    </div>
+
+  <div class="quiz-card" id="q11">
+        <div class="question-num">Otázka 11 • Gnoseologie</div>
+        <div class="question-text">Co z níže uvedeného je typickým příkladem apriorního poznání, čili poznání na základě rozumu. Nápověda: toto poznání je charakteristické tím, že vychází z logiky a definic pojmů. Nepotřebujeme k němu smyslovou zkušenost</div>
+        <ul class="options-list">
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f11', 'To je naopak příklad empirického poznání. Abych mohl říct, že jsou všechny labutě bílé, musel bych nejprve labutě a jejich barvy pozorovat.')">Všechny labutě jsou bílé</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, false, 'f11', 'To je naopak příklad empirického poznání. Aby mohli vědci říct, že helium má dva protony, museli provést mnoho pozorování a experimentů.')">Helium má dva protony.</button></li>
+            <li class="option-item"><button class="option-btn" onclick="handleAnswer(this, true, 'f11', 'Výrobně! Čtyřúhelník je z definice rovinný útvar,který má čtyři vnitřní úhly, a tedy i čtyři strany. To dokážu říct na základě rozumu, bez toho, abych čtyřúhelníky pozoroval a počítal u každého, jestli má opravdu čtyři strany. Jedná se tedy opravdu o apriorní poznání.')">Všechny čtyřúhelníky mají čtyři strany.</button></li>
+        </ul>
+        <div class="feedback" id="f11"></div>
+    </div>
+    
+    
+    
+</div>
+
+<script>
+    function handleAnswer(button, isCorrect, feedbackId, rationaleText) {
+        const card = button.closest('.quiz-card');
+        const buttons = card.querySelectorAll('.option-btn');
+        const feedbackDiv = document.getElementById(feedbackId);
+
+        buttons.forEach(btn => {
+            btn.classList.remove('correct', 'incorrect');
+        });
+
+        if (isCorrect) {
+            button.classList.add('correct');
+            feedbackDiv.textContent = rationaleText;
+            feedbackDiv.className = "feedback correct-feed";
+        } else {
+            button.classList.add('incorrect');
+            feedbackDiv.textContent = rationaleText;
+            feedbackDiv.className = "feedback incorrect-feed";
+        }
+    }
+</script>
+
+</body>
+</html>
